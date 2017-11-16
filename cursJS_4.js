@@ -1,4 +1,4 @@
-var numberOfBoxes = 0;
+var numberOfSubjects = 0;
 var requiredCredits = 40; //hardcode
 var myCredits;
 var missingCredits;
@@ -35,7 +35,7 @@ function createInputBox(elementID){
 }
 
 function createBoxes(numberOfBoxes) {
-//console.log(numberOfBoxes);
+//console.log(numberOfSubjects);
     for (var i = 1; i <= numberOfBoxes; i++) {
         console.log("input" + i);
         createInputBox("input" + i);
@@ -43,13 +43,13 @@ function createBoxes(numberOfBoxes) {
 }
 
 function generate(){
-    numberOfBoxes = document.getElementById("numberOfBoxes").value;
-    createBoxes(numberOfBoxes);
+    numberOfSubjects = document.getElementById("numberOfSubjects").value;
+    createBoxes(numberOfSubjects);
 }
 
 function calculateCredits() {
 
-    for(var i=1; i<=numberOfBoxes; i++){
+    for(var i=1; i<=numberOfSubjects; i++){
         var inputElementValue = document.getElementById("input" + i).value;
         //console.log(inputElementValue);
         sumOfCredits += parseInt(inputElementValue);
@@ -57,4 +57,11 @@ function calculateCredits() {
 
     console.log(sumOfCredits);
     document.getElementById("sumOfCredits").innerHTML = sumOfCredits;
+    document.getElementById("averageCredits").innerHTML = returnAverage();
+}
+
+function returnAverage(){
+    //console.log(numberOfSubjects);
+    //console.log(sumOfCredits);
+    return sumOfCredits / numberOfSubjects;
 }
