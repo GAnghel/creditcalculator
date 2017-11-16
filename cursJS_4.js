@@ -56,4 +56,5 @@ function calculateCredits() {
     }
 
     console.log(sumOfCredits);
+    document.getElementById("sumOfCredits").innerHTML = sumOfCredits;
 }
